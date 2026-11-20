@@ -1,0 +1,1120 @@
+/* =====================================
+   PAGE DE DECLARATION
+===================================== */
+
+.page-declaration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* CONTENEUR PRINCIPAL */
+.container {
+    position: relative;
+    width: 900px;
+    max-width: 100%;
+    min-height: 560px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tous les éléments héritent de la police du conteneur */
+.container input,
+.container select,
+.container textarea,
+.container button,
+.container label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   FORMULAIRES
+===================================== */
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 54%;
+    transition: all 0.6s ease-in-out;
+}
+
+.container form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    height: 100%;
+    justify-content: center;
+    align-items: stretch;
+    text-align: left;
+    border: none;
+    outline: none;
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+    color: #056c62;
+    text-align: center;
+}
+
+.container p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.container .champ {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 5px 0;
+    position: relative;
+}
+
+.container .champ.haut {
+    align-items: flex-start;
+}
+
+.container .champ label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 14.5px;
+    font-weight: normal;
+    -webkit-text-stroke: 0.4px #222;
+    color: #222;
+}
+
+/* CHAMPS : bordures un peu plus épaisses */
+.container .champ input,
+.container .champ select,
+.container .champ textarea {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    padding: 6px 12px;
+    margin: 0;
+    border: 2px solid #b5b5b5;
+    border-radius: 20px;
+    font-size: 15px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.container .champ input:focus,
+.container .champ select:focus,
+.container .champ textarea:focus {
+    border-color: #056c62;
+    outline: none;
+}
+
+.container .champ textarea {
+    resize: vertical;
+    min-height: 60px;
+    border-radius: 12px;
+}
+
+.container .champ input[type="file"] {
+    flex: 1;
+    min-width: 0;
+    padding: 5px 12px;
+    border: 2px solid #b5b5b5;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.container .champ input[type="file"]:focus {
+    border-color: #056c62;
+    outline: none;
+}
+
+/* Bouton "Choisir des fichiers" */
+.container .champ input[type="file"]::file-selector-button {
+    background: #056c62;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.container .champ input[type="file"]::file-selector-button:hover {
+    background: #04504a;
+}
+
+/* BOUTONS : Envoyer ma déclaration */
+.container button[type="submit"] {
+    align-self: flex-end;
+    background: #056c62;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-right: 0;
+    transition: 0.3s;
+}
+
+.container button[type="submit"]:hover {
+    background: #04504a;
+}
+
+/* =====================================
+   PANNEAU ANIME
+===================================== */
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 54%;
+    width: 46%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: #056c62;
+    color: white;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Partie supérieure blanche */
+.panel_haut {
+    width: 100%;
+    height: 45%;
+    flex: none;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo_panneau {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+/* Titre sur fond blanc */
+.panel_haut h2 {
+    color: #056c62;
+    font-size: 21px;
+    margin: 0;
+}
+
+/* Partie inférieure verte */
+.panel_bas {
+    width: 100%;
+    height: 55%;
+    flex: none;
+    background: #056c62;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.panel_bas p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+/* Boutons */
+.panel_bas .ghost {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.panel_bas .ghost:hover {
+    background: #ffffff;
+    color: #056c62;
+}
+
+.overlay-left {
+    left: 0;
+    transform: none;
+}
+
+.overlay-right {
+    right: 0;
+    transform: none;
+}
+
+.ghost {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.ghost:hover {
+    background: white;
+    color: #056c62;
+}
+
+/* =====================================
+   ANIMATION DES FORMULAIRES
+===================================== */
+
+/* Par défaut, formulaire perdu */
+.sign-in-container {
+    left: 0;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Quand on clique */
+.container.right-panel-active .sign-in-container {
+    transform: translateX(85.19%);
+    opacity: 0;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(85.19%);
+    opacity: 1;
+    z-index: 5;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-117.39%);
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+    .container {
+        min-height: 800px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .container .champ {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .container .champ label {
+        width: auto;
+    }
+}
+
+/* =====================================
+   FENETRE MODALE DE DECLARATION
+===================================== */
+
+.modal-declaration {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-declaration.active {
+    display: flex;
+    opacity: 1;
+}
+
+.fond-modal {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.contenu-modal {
+    position: relative;
+    z-index: 2;
+    width: 900px;
+    max-width: 100%;
+    transform: translateY(25px) scale(0.96);
+    transition: transform 0.35s ease;
+}
+
+.modal-declaration.active .contenu-modal {
+    transform: translateY(0) scale(1);
+}
+
+.fermer-modal {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    z-index: 10000;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #333;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+body.modal-ouvert {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .modal-declaration {
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .contenu-modal {
+        margin: auto;
+    }
+
+    .fermer-modal {
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* =====================================
+   GESTION DES ERREURS
+===================================== */
+
+.erreur-champ {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.container .champ .erreur-champ {
+    display: block;
+    position: static;
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: 5px;
+    color: #dc2626;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.container .champ .zone-saisie {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .champ .zone-saisie input,
+.container .champ .zone-saisie select,
+.container .champ .zone-saisie textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.obligatoire {
+    color: #e53935;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+#form-perdu form button[type="submit"] {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    position: relative;
+    left: 0;
+    transform: none;
+}
+
+#form-perdu .obligatoire {
+    color: #ff0000 !important;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline;
+}
+
+#form-retrouve .obligatoire {
+    color: #ff0000 !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =====================================
+   STABILISATION DE LA MODALE
+===================================== */
+
+.modal-declaration .contenu-modal {
+    background: transparent;
+    isolation: isolate;
+}
+
+.modal-declaration .container {
+    overflow: hidden;
+    isolation: isolate;
+    background: transparent;
+    border-radius: 20px;
+    backface-visibility: hidden;
+}
+
+.modal-declaration .overlay {
+    background-color: #056c62;
+    backface-visibility: hidden;
+}
+
+.modal-declaration {
+    isolation: isolate;
+}
+
+.modal-declaration .contenu-modal {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    isolation: isolate;
+}
+
+.modal-declaration .overlay-container {
+    background: #056c62;
+    backface-visibility: hidden;
+    overflow: hidden;
+    isolation: isolate;
+    contain: paint;
+}
+
+.modal-declaration .overlay {
+    position: relative;
+    width: 200%;
+    height: 100%;
+    overflow: hidden;
+    background: #056c62;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.modal-declaration .overlay-panel {
+    background: #056c62;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.modal-declaration .panel_haut {
+    background: #fff;
+}
+
+.modal-declaration .panel_bas {
+    background: #056c62;
+}
+
+.modal-declaration .sign-in-container,
+.modal-declaration .sign-up-container {
+    background: transparent;
+}
+
+.modal-declaration .sign-in-container form,
+.modal-declaration .sign-up-container form {
+    background: #ffffff;
+}
+
+/* Arrondir uniquement les coins extérieurs */
+.modal-declaration .container {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.modal-declaration #form-perdu,
+.modal-declaration #form-retrouve,
+.modal-declaration #form-perdu form,
+.modal-declaration #form-retrouve form,
+.modal-declaration .overlay-container {
+    border-radius: 0;
+}
+
+/* =====================================
+   ECRAN DE CHARGEMENT
+===================================== */
+
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-card {
+    background: white;
+    padding: 35px;
+    width: 300px;
+    max-width: 85%;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    animation: apparition 0.3s ease;
+}
+
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #e5e5e5;
+    border-top: 5px solid #127369;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: tourner 0.8s linear infinite;
+}
+
+.loading-card h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.loading-card p {
+    color: #777;
+    font-size: 13px;
+}
+
+/* Animations */
+@keyframes tourner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =====================================
+   CARTE DE RESULTAT
+===================================== */
+
+.notification-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    width: 300px;
+    max-width: 85%;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 10000;
+    animation: apparition 0.4s ease;
+}
+
+.notification-card .icone {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #e2f5eb;
+    color: #16a34a;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+}
+
+.notification-card h3 {
+    color: #16a34a;
+    margin-bottom: 8px;
+}
+
+.notification-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* =====================================
+   CHAMP TELEPHONE AVEC PREFIXE +229 01
+===================================== */
+
+.container .champ .telephone-container {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border: 2px solid #b5b5b5;
+    border-radius: 20px;
+
+    background: #fff;
+    overflow: hidden;
+
+    transition: border-color 0.2s ease;
+}
+
+/* Bordure verte lorsqu'on clique dans le champ */
+.container .champ .telephone-container:focus-within {
+    border-color: #056c62;
+}
+
+/* Préfixe fixe */
+.container .champ .telephone-container .prefixe {
+    flex-shrink: 0;
+    padding: 6px 0 6px 12px;
+
+    color: #056c62;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Zone de saisie des 8 chiffres */
+.container .champ .telephone-container input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 6px 8px;
+    margin: 0;
+
+    border: none;
+    outline: none;
+    border-radius: 0;
+
+    background: transparent;
+    font-size: 15px;
+}
+
+/* Empêcher une deuxième bordure au focus */
+.container .champ .telephone-container input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Adaptation sur mobile */
+@media (max-width: 768px) {
+    .container .champ .telephone-container {
+        width: 100%;
+        flex: none;
+    }
+}
+
+/* =========================================
+   MENU DÉROULANT DES NOTIFICATIONS
+========================================= */
+
+.notification-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.notif {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    color: #075e55;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.notif:hover {
+    background: #e7f3ef;
+}
+
+.notif .badge {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e53935;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+/* Panneau déroulant */
+
+.menu-notifications {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: -65px;
+    width: 340px;
+    max-width: calc(100vw - 24px);
+    background: white;
+    border: 1px solid #e5eeeb;
+    border-radius: 13px;
+    box-shadow: 0 12px 35px rgba(0, 40, 30, 0.15);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.22s ease;
+    overflow: hidden;
+}
+
+.notification-ouvert .menu-notifications {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* En-tête */
+
+.notification-entete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px;
+    border-bottom: 1px solid #edf1ef;
+}
+
+.notification-entete h3 {
+    margin: 0;
+    color: #075e55;
+    font-size: 17px;
+}
+
+.notification-entete span {
+    font-size: 11px;
+    color: #718096;
+    background: #eef7f3;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+/* Liste */
+
+.notification-liste {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 17px;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f3f2;
+    transition: background 0.2s ease;
+}
+
+.notification-item:hover {
+    background: #f5faf8;
+}
+
+.notification-icone {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.notification-icone.perdu {
+    background: #fff2df;
+    color: #c27a17;
+}
+
+.notification-icone.retrouve {
+    background: #e2f5e9;
+    color: #16804a;
+}
+
+.notification-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-details strong {
+    display: block;
+    color: #243b36;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.notification-details p {
+    color: #64748b;
+    font-size: 12px;
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.notification-details small {
+    color: #94a3a0;
+    font-size: 11px;
+}
+
+/* Aucune notification */
+
+.notifications-vides {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.notifications-vides span {
+    font-size: 28px;
+}
+
+.notifications-vides p {
+    color: #718096;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+/* Bas du menu */
+
+.notification-bas {
+    display: block;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #087267;
+    font-size: 13px;
+    font-weight: 700;
+    background: #f8fbfa;
+    border-top: 1px solid #edf1ef;
+}
+
+.notification-bas:hover {
+    background: #e9f5f1;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+    .menu-notifications {
+        right: -45px;
+        width: 320px;
+    }
+}
+/* =====================================
+   CHAMPS NUMERO DE TELEPHONE
+===================================== */
+
+.telephone-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    border: 1px solid #b5b5b5;
+    border-radius: 25px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.telephone-container .prefixe {
+    padding-left: 15px;
+    padding-right: 8px;
+    font-weight: bold;
+    color: #006f64;
+    white-space: nowrap;
+}
+
+.telephone-container input.numero-telephone {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    padding: 0 10px;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* =====================================
+   LOADER TRACKOBJET
+===================================== */
+
+#loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(0, 35, 32, 0.88);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 35px 45px;
+    border-radius: 22px;
+    min-width: 260px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+.loader-logo {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+.loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #d9eeeb;
+    border-top-color: #007568;
+    border-radius: 50%;
+    animation: loaderRotation 0.8s linear infinite;
+    margin-bottom: 18px;
+}
+
+.loader-content h3 {
+    color: #006f64;
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.loader-content p {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+@keyframes loaderRotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+#loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    background: rgba(0, 35, 32, 0.90);
+    align-items: center;
+    justify-content: center;
+}
